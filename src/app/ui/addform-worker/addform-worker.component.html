@@ -1,0 +1,46 @@
+<form [formGroup]="addForm">
+  <div class="row mb-3">
+    <div class="col-12">
+      <h5>Добавить сотрудника</h5>
+    </div>
+    <div class="col-4">
+      <input
+        type="text"
+        class="form-control"
+        formControlName ="name"
+        placeholder="Имя"
+        [(ngModel)]="name"
+      />
+    </div>
+    <div class="col-4">
+      <input
+        type="text"
+        class="form-control"
+        formControlName ="surname"
+        placeholder="Фамилия"
+        [(ngModel)]="surname"
+      />
+    </div>
+    <div class="col-4">
+      <input
+        [textMask]="{mask: mask}"
+        type="text"
+        class="form-control"
+        formControlName ="phone"
+        placeholder="Телефон"
+        [(ngModel)]="phone"
+      />
+    </div>
+    <div class="col-4 my-2">
+      <select class="custom-select" [(ngModel)]="type"  [ngModelOptions]="{standalone: true}">
+        <option [ngValue]="myWorkerType.programmer">Программист</option>
+        <option [ngValue]="myWorkerType.designer">Дизайнер</option>
+        <option [ngValue]="myWorkerType.copywriter">Рекламщик</option>
+        <option [ngValue]="myWorkerType.manager">Менеджер</option>
+      </select>
+    </div>
+    <div class="col-12 mt-1">
+      <button class="btn btn-outline-primary btn-sm"  [disabled]= "addForm.invalid" (click)="onAddWorker()">Добавить</button>
+    </div>
+  </div>
+</form>

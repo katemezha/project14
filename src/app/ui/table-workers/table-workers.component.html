@@ -1,0 +1,28 @@
+<ng-container *ngIf="workers.length > 0">
+ 
+  <div class="row">
+    <div class="col-12">
+      <h5>{{ title }}</h5>
+     
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" [style.width]="'10%'">#</th>
+            <th scope="col" [style.width]="'30%'">Имя</th>
+            <th scope="col" [style.width]="'30%'"> Фамилия</th>
+            <th scope="col" [style.width]="'30%'"> Телефон</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let worker of workers">
+            <th scope="row">{{ worker.id }}</th>
+            <td>{{ worker.name }}</td>
+            <td>{{ worker.surname }}</td>
+            <td>{{ worker.phone }}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    </div>
+</ng-container>

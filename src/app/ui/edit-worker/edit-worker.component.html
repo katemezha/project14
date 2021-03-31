@@ -1,0 +1,37 @@
+<button type="button" class="btn btn-outline-info" data-toggle="modal" [attr.data-target]="'#exampleModal' + comeId" data-whatever="@mdo" (click)="onEditWorker()">Редактировать</button>
+
+<div class="modal fade" id="exampleModal{{comeId}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Id:{{id}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="personForm">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Имя:</label>
+            <input required  formControlName="firstName" type="text" class="form-control" id="recipient-name" [(ngModel)]="name" name="name">
+            <div class="alert alert-danger" [hidden]="name !== ''">Введите имя (обязательное поле)</div>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Фамилия:</label>
+            <input required  formControlName="lastName" type="text" class="form-control" id="message-text" [(ngModel)]="surname" name="surname">
+            <div class="alert alert-danger" [hidden]="surname !== ''">Введите фамилие (обязательное поле)</div>
+          </div>
+        <div class="form-group">
+          <label for="phone" class="col-form-label">Телефон:</label>
+          <input [textMask]="{mask: mask}" formControlName="phone" required type="text" class="form-control" id="phone" [(ngModel)]="phone" name="phone">
+          <div class="alert alert-danger" [hidden]="phone">Введите телефон (11 цифр)</div>
+        </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="saveChanges()">Сохранить</button>
+      </div>
+    </div>
+  </div>
+</div>
